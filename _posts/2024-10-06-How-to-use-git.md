@@ -4,9 +4,6 @@ categories:
   - Git
 tags:
   - Git
-  - Docker
-  - Oracle19c
-  - Database
 ---
 
 ## How to Use Git
