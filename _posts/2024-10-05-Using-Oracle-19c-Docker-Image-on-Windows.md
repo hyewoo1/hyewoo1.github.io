@@ -1,5 +1,5 @@
 ---
-title: "Post: Using Oracle 19c Docker Image on Windows"
+title: "Using Oracle 19c Docker Image on Windows"
 categories:
   - Database
 tags:
