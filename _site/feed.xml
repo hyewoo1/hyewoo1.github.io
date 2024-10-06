@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-06T10:43:44+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A blog where I do what I want</title><subtitle>A blog where I do what I want. Here, I share my journey, ideas, and projects—whether it&apos;s coding, learning new skills, or pursuing creative interests. This space is all about exploring and expressing what I enjoy, without boundaries.</subtitle><author><name>Hyeongtaek Woo</name></author><entry><title type="html">How to use git</title><link href="http://localhost:4000/git/How-to-use-git/" rel="alternate" type="text/html" title="How to use git" /><published>2024-10-06T00:00:00+09:00</published><updated>2024-10-06T00:00:00+09:00</updated><id>http://localhost:4000/git/How-to-use-git</id><content type="html" xml:base="http://localhost:4000/git/How-to-use-git/"><![CDATA[<h2 id="how-to-use-git">How to Use Git</h2>
+
+<h3 id="git-reference">Git Reference</h3>
+<ul>
+  <li><a href="https://git-scm.com/docs">Git - Official Documentation</a></li>
+</ul>
+
+<h3 id="what-is-a-git-repository">What is a Git Repository?</h3>
+<ul>
+  <li>A Git repository is a storage location for your project’s files and version history.</li>
+</ul>
+
+<h3 id="git-gui">Git GUI</h3>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[GitKraken Legendary Git Tools</td>
+          <td>GitKraken](https://www.gitkraken.com/)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h2 id="basic-git-commands">Basic Git Commands</h2>
+
+<h3 id="check-git-version">Check Git Version</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h3 id="check-the-status-of-the-git-repository">Check the Status of the Git Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
+
+<h3 id="initialize-a-new-repository">Initialize a New Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
+
+<h3 id="add-files-to-staging-area-working-directory--staging-area">Add Files to Staging Area (Working Directory → Staging Area)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1 file2
+</code></pre></div></div>
+
+<h3 id="add-all-changes-to-staging-area">Add All Changes to Staging Area</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+</code></pre></div></div>
+
+<h3 id="commit-changes-staging-area--repository">Commit Changes (Staging Area → Repository)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Commit message"</span>
+</code></pre></div></div>
+<ul>
+  <li>If you don’t use the <code class="language-plaintext highlighter-rouge">-m</code> option, Git will open a text editor (like Vim).</li>
+  <li>You can change the default text editor by following this link: <a href="https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Setup-and-Config">Git Setup and Config</a>.</li>
+</ul>
+
+<h2 id="viewing-git-log-and-commit-information">Viewing Git Log and Commit Information</h2>
+
+<h3 id="view-commit-logs">View Commit Logs</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
+</code></pre></div></div>
+<ul>
+  <li>To see the log in a single line per commit, use <code class="language-plaintext highlighter-rouge">--oneline</code> or <code class="language-plaintext highlighter-rouge">--pretty=oneline --abbrev-commit</code>.</li>
+  <li><a href="https://git-scm.com/docs/git-log">Git - git-log Documentation</a></li>
+</ul>
+
+<h3 id="amend-the-most-recent-commit">Amend the Most Recent Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add &lt;file&gt;
+git commit <span class="nt">--amend</span>
+</code></pre></div></div>
+
+<h3 id="exclude-files-and-folders-gitignore">Exclude Files and Folders (gitignore)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> .gitignore
+</code></pre></div></div>
+<ul>
+  <li>You can exclude specific files and folders by listing them in the <code class="language-plaintext highlighter-rouge">.gitignore</code> file.</li>
+  <li>Examples: API keys, credentials, system files, secret API keys
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">foldername/</code>: Exclude a specific folder</li>
+      <li><code class="language-plaintext highlighter-rouge">*.log</code>: Exclude all <code class="language-plaintext highlighter-rouge">.log</code> files</li>
+    </ul>
+  </li>
+  <li><a href="http://gitignore.io">gitignore.io</a> is a helpful resource for generating <code class="language-plaintext highlighter-rouge">.gitignore</code> files.</li>
+</ul>
+
+<h2 id="best-practices-for-git-commits">Best Practices for Git Commits</h2>
+
+<h3 id="atomic-commits">Atomic Commits</h3>
+<ul>
+  <li>Each commit should represent one unit of work or one feature.</li>
+</ul>
+
+<h3 id="writing-commit-messages">Writing Commit Messages</h3>
+<ul>
+  <li>Commit messages should be written in the present tense. The first line should summarize the commit.</li>
+</ul>
+
+<h2 id="branch-management">Branch Management</h2>
+
+<h3 id="create-and-switch-to-a-branch">Create and Switch to a Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch &lt;branch-name&gt;
+git switch &lt;branch-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>Use the <code class="language-plaintext highlighter-rouge">-c</code> option to create and switch to a branch at the same time.</li>
+</ul>
+
+<h3 id="rename-a-branch">Rename a Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-m</span> &lt;new-branch-name&gt;
+</code></pre></div></div>
+
+<h3 id="delete-a-branch">Delete a Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> &lt;branch-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>You can only delete branches that have been merged.</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">-D</code> option to force-delete a branch.</li>
+</ul>
+
+<h3 id="merge-branches">Merge Branches</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge &lt;branch-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>Fast-forward merges are possible when there are no changes on the master branch.</li>
+  <li>If conflicts occur, Git will show the conflicting files, allowing you to resolve the conflicts before committing.</li>
+</ul>
+
+<h2 id="comparing-changes-with-git">Comparing Changes with Git</h2>
+
+<h3 id="compare-changes-with-the-last-commit">Compare Changes with the Last Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff
+</code></pre></div></div>
+
+<h3 id="compare-staged-changes">Compare Staged Changes</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff <span class="nt">--staged</span>
+</code></pre></div></div>
+
+<h3 id="compare-specific-files">Compare Specific Files</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff HEAD &lt;filename&gt;
+</code></pre></div></div>
+
+<h3 id="compare-between-branches">Compare Between Branches</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff master..&lt;branch-name&gt;
+</code></pre></div></div>
+
+<h3 id="compare-between-commits">Compare Between Commits</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff &lt;commit1&gt;..&lt;commit2&gt;
+</code></pre></div></div>
+
+<h2 id="stashing-changes-with-git">Stashing Changes with Git</h2>
+
+<h3 id="stash-changes">Stash Changes</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash
+</code></pre></div></div>
+<ul>
+  <li>Temporarily save changes when switching branches.</li>
+</ul>
+
+<h3 id="apply-and-delete-the-latest-stash">Apply and Delete the Latest Stash</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash pop
+</code></pre></div></div>
+<ul>
+  <li>This applies the most recent stash and removes it from the stash stack.</li>
+</ul>
+
+<h3 id="apply-stash-without-deleting">Apply Stash Without Deleting</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash apply
+</code></pre></div></div>
+<ul>
+  <li>This applies the stash but keeps it in the stash stack.</li>
+</ul>
+
+<h2 id="reverting-and-resetting-commits">Reverting and Resetting Commits</h2>
+
+<h3 id="revert-a-commit">Revert a Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git revert &lt;commit-hash&gt;
+</code></pre></div></div>
+<ul>
+  <li>Reverts a previous commit by creating a new commit that undoes the changes. This is useful when working in a team.</li>
+</ul>
+
+<h3 id="reset-to-a-specific-commit">Reset to a Specific Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset &lt;commit-hash&gt;
+</code></pre></div></div>
+<ul>
+  <li>Resets the repository to the state of a specific commit.</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">--hard</code> option to discard all changes as well.</li>
+</ul>
+
+<h2 id="managing-remote-repositories">Managing Remote Repositories</h2>
+
+<h3 id="add-a-remote-repository">Add a Remote Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add &lt;name&gt; &lt;url&gt;
+</code></pre></div></div>
+
+<h3 id="view-remote-repositories">View Remote Repositories</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h3 id="push-changes-to-a-remote-repository">Push Changes to a Remote Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master
+</code></pre></div></div>
+
+<h3 id="push-a-local-branch-to-a-remote-branch">Push a Local Branch to a Remote Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin &lt;branch-name&gt;
+</code></pre></div></div>
+
+<h2 id="rebasing-with-git">Rebasing with Git</h2>
+
+<h3 id="perform-a-rebase">Perform a Rebase</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase &lt;branch&gt;
+</code></pre></div></div>
+<ul>
+  <li>Rebases the current branch onto another branch, cleaning up the commit history.</li>
+</ul>
+
+<h3 id="interactive-rebase">Interactive Rebase</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~4
+</code></pre></div></div>
+<ul>
+  <li>Opens an interactive rebase editor to clean up multiple commits.</li>
+</ul>
+
+<h2 id="git-reflog">Git Reflog</h2>
+
+<h3 id="view-reflog-reference-log">View Reflog (Reference Log)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog
+</code></pre></div></div>
+<ul>
+  <li>Shows a log of all references that have been updated in your repository (including those not visible in git log).
+View Reflog for a Specific Branch</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog show HEAD
+git reflog show &lt;branch-name&gt;
+</code></pre></div></div>
+<h3 id="reset-to-a-specific-point-in-reflog">Reset to a Specific Point in Reflog</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--hard</span> HEAD@<span class="o">{</span>index<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Resets your repository to a specific point in the reference log, discarding changes.</li>
+</ul>
+
+<h3 id="compare-differences-using-reflog">Compare Differences Using Reflog</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff HEAD@<span class="o">{</span>0<span class="o">}</span> HEAD@<span class="o">{</span>2<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Compares changes between two points in the reflog.</li>
+</ul>
+
+<h2 id="managing-git-tags">Managing Git Tags</h2>
+
+<h3 id="create-and-list-tags">Create and List Tags</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag &lt;tag-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>Lists all tags: <code class="language-plaintext highlighter-rouge">git tag -l</code></li>
+</ul>
+
+<h3 id="delete-a-tag">Delete a Tag</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag <span class="nt">-d</span> &lt;tag-name&gt;
+</code></pre></div></div>
+
+<h3 id="push-tags-to-remote">Push Tags to Remote</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--tags</span>
+</code></pre></div></div>
+
+<h3 id="checkout-by-tag">Checkout by Tag</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout &lt;tag&gt;
+</code></pre></div></div>
+
+<h2 id="git-aliases">Git Aliases</h2>
+
+<h3 id="set-up-a-git-alias">Set Up a Git Alias</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> alias.&lt;shortname&gt; <span class="s1">'&lt;git-command&gt;'</span>
+</code></pre></div></div>
+<ul>
+  <li>Example: <code class="language-plaintext highlighter-rouge">git config --global alias.a status</code> allows you to use <code class="language-plaintext highlighter-rouge">git a</code> to execute <code class="language-plaintext highlighter-rouge">git status</code>.</li>
+</ul>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Git" /><category term="Git" /><summary type="html"><![CDATA[How to Use Git]]></summary></entry><entry><title type="html">Docker container backup and restore</title><link href="http://localhost:4000/docker/Docker-container-backup-and-restore/" rel="alternate" type="text/html" title="Docker container backup and restore" /><published>2024-10-05T00:00:00+09:00</published><updated>2024-10-05T00:00:00+09:00</updated><id>http://localhost:4000/docker/Docker-container-backup-and-restore</id><content type="html" xml:base="http://localhost:4000/docker/Docker-container-backup-and-restore/"><![CDATA[<h2 id="docker-container-backup-and-restore">Docker container backup and restore</h2>
+
+<h3 id="1-check-the-current-container-id">1. Check the current container ID</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker ps <span class="nt">-a</span>
+CONTAINER ID   IMAGE                COMMAND                   CREATED         STATUS                            PORTS     NAMES
+10ecb9562a8c   myoracle19c:latest   <span class="s2">"/bin/sh -c 'exec </span><span class="nv">$O</span><span class="s2">…"</span>   2 minutes ago   Exited <span class="o">(</span>143<span class="o">)</span> About a minute ago             myoracle19c
+</code></pre></div></div>
+
+<h3 id="2-save-the-container-as-a-docker-image">2. Save the container as a Docker image</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker commit 10ecb9562a8c myoracle19c
+</code></pre></div></div>
+
+<h3 id="3-save-the-docker-image-to-a-file">3. Save the Docker image to a file</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker save <span class="nt">-o</span> myoracle19c.tar myoracle19c
+</code></pre></div></div>
+
+<h3 id="4-load-the-saved-docker-image-from-the-file">4. Load the saved Docker image from the file</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker load <span class="nt">-i</span> myoracle19c.tar
+</code></pre></div></div>
+
+<h3 id="5-run-the-container-according-to-your-environment">5. Run the container according to your environment</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--name</span> myoracle19c ^
+<span class="nt">-p</span> 1521:1521 ^
+<span class="nt">-e</span> <span class="nv">ORACLE_SID</span><span class="o">=</span>ORCL ^
+<span class="nt">-e</span> <span class="nv">ORACLE_PWD</span><span class="o">=</span>Oracle123 ^
+<span class="nt">-e</span> <span class="nv">ORACLE_CHARACTERSET</span><span class="o">=</span>AL32UTF8 ^
+<span class="nt">-v</span> C:<span class="se">\o</span>racle-19c<span class="se">\o</span>radata:/opt/oracle/oradata ^
+myoracle19c:latest
+</code></pre></div></div>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Docker" /><category term="Docker" /><summary type="html"><![CDATA[Docker container backup and restore]]></summary></entry><entry><title type="html">Using Oracle 19c Docker Image on Windows</title><link href="http://localhost:4000/database/Using-Oracle-19c-Docker-Image-on-Windows/" rel="alternate" type="text/html" title="Using Oracle 19c Docker Image on Windows" /><published>2024-10-05T00:00:00+09:00</published><updated>2024-10-05T00:00:00+09:00</updated><id>http://localhost:4000/database/Using-Oracle-19c-Docker-Image-on-Windows</id><content type="html" xml:base="http://localhost:4000/database/Using-Oracle-19c-Docker-Image-on-Windows/"><![CDATA[<h2 id="using-oracle-19c-docker-image-on-windows">Using Oracle 19c Docker Image on Windows</h2>
+
+<p>This guide will help you use the Oracle 19c Docker image on Windows. To run Docker containers on Windows, you need to use <strong>Docker Desktop</strong>. All steps are explained to work within the Windows environment without using Linux commands.</p>
+
+<h3 id="1-install-docker-desktop">1. <strong>Install Docker Desktop</strong></h3>
+
+<ol>
+  <li>Download and install <strong><a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a></strong>.</li>
+  <li>After installation, launch Docker Desktop.</li>
+  <li>You can configure Docker Desktop to use the <strong>Windows Subsystem for Linux 2 (WSL 2)</strong> backend for better performance.</li>
+  <li>Verify that Docker is running correctly by executing the following command in Command Prompt or PowerShell:</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h3 id="2-pull-the-image">2. <strong>Pull the Image</strong></h3>
+
+<p>Download the custom image provided on Docker Hub to your local machine. Open Command Prompt or PowerShell and enter the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull doctorkirk/oracle-19c
+</code></pre></div></div>
+
+<p>This command pulls the Oracle 19c image to your local machine.</p>
+
+<h3 id="3-create-a-local-data-directory">3. <strong>Create a Local Data Directory</strong></h3>
+
+<p>Create a local directory where the Oracle container will store its data. You can do this using File Explorer or a command.</p>
+
+<ol>
+  <li><strong>Using Windows File Explorer</strong>, create a directory at your desired path.
+  Example: <code class="language-plaintext highlighter-rouge">C:\oracle-19c\oradata</code></li>
+</ol>
+
+<p>Or, <strong>using Command Prompt</strong>, create the directory with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>C:<span class="se">\o</span>racle-19c<span class="se">\o</span>radata
+</code></pre></div></div>
+
+<h3 id="4-set-directory-permissions">4. <strong>Set Directory Permissions</strong></h3>
+
+<p>Unlike Linux, you don’t need to set permissions using the <code class="language-plaintext highlighter-rouge">chown</code> command on Windows. The Docker container will use this directory without any permission issues, so you can skip this step.</p>
+
+<h3 id="5-run-the-container">5. <strong>Run the Container</strong></h3>
+
+<p>Now, run the container with the following command in Command Prompt or PowerShell:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--name</span> oracle-19c ^
+<span class="nt">-p</span> 1521:1521 ^
+<span class="nt">-e</span> <span class="nv">ORACLE_SID</span><span class="o">=</span>ORCL ^
+<span class="nt">-e</span> <span class="nv">ORACLE_PWD</span><span class="o">=</span>Oracle123 ^
+<span class="nt">-e</span> <span class="nv">ORACLE_CHARACTERSET</span><span class="o">=</span>AL32UTF8 ^
+<span class="nt">-v</span> C:<span class="se">\o</span>racle-19c<span class="se">\o</span>radata:/opt/oracle/oradata ^
+doctorkirk/oracle-19c
+</code></pre></div></div>
+
+<h4 id="explanation">Explanation:</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--name oracle-19c</code>: Names the container <code class="language-plaintext highlighter-rouge">oracle-19c</code></li>
+  <li><code class="language-plaintext highlighter-rouge">-p 1521:1521</code>: Maps local port 1521 to container port 1521 (Oracle Listener)</li>
+  <li><code class="language-plaintext highlighter-rouge">-e ORACLE_SID=ORCL</code>: Sets the Oracle SID to <code class="language-plaintext highlighter-rouge">ORCL</code> (modifiable)</li>
+  <li><code class="language-plaintext highlighter-rouge">-e ORACLE_PWD=Oracle123</code>: Sets the password for Oracle SYS, SYSTEM accounts to <code class="language-plaintext highlighter-rouge">Oracle123</code> (modifiable)</li>
+  <li><code class="language-plaintext highlighter-rouge">-e ORACLE_CHARACTERSET=AL32UTF8</code>: Sets the database character set to UTF-8</li>
+  <li><code class="language-plaintext highlighter-rouge">-v C:\oracle-19c\oradata:/opt/oracle/oradata</code>: Links the local directory to the container directory for data volume</li>
+</ul>
+
+<h3 id="6-connect-to-oracle-database">6. <strong>Connect to Oracle Database</strong></h3>
+
+<p>Once the container is running, you can connect to the database using SQL<em>Plus or Oracle SQL Developer. To use SQL</em>Plus, execute the following command in Command Prompt:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlplus sys/Oracle123@//localhost:1521/ORCL as sysdba
+</code></pre></div></div>
+
+<p>You are now ready to use the custom Oracle 19c Docker image on Windows.</p>
+
+<h3 id="summary">Summary</h3>
+<ol>
+  <li>Install <strong>Docker Desktop</strong></li>
+  <li>Download the image with <code class="language-plaintext highlighter-rouge">docker pull doctorkirk/oracle-19c</code></li>
+  <li>Create a local directory for data storage</li>
+  <li>Run the container with the Docker run command</li>
+  <li>Connect to the database using SQL*Plus or Oracle SQL Developer</li>
+</ol>
+
+<p>Follow these steps to easily use Oracle 19c in a Docker container on Windows.</p>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Database" /><category term="OracleDB" /><category term="Docker" /><category term="Oracle19c" /><category term="Database" /><summary type="html"><![CDATA[Using Oracle 19c Docker Image on Windows]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/blog/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-04-19T04:34:30+09:00</published><updated>2019-04-19T04:34:30+09:00</updated><id>http://localhost:4000/blog/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/blog/welcome-to-jekyll/"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
+</code></pre></div></div>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="Jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Post: Link</title><link href="http://localhost:4000/blog/post-link/" rel="alternate" type="text/html" title="Post: Link" /><published>2010-03-07T00:00:00+09:00</published><updated>2010-03-07T00:00:00+09:00</updated><id>http://localhost:4000/blog/post-link</id><content type="html" xml:base="http://localhost:4000/blog/post-link/"><![CDATA[<p>This theme supports <strong>link posts</strong>, made famous by John Gruber. To use, just add <code class="language-plaintext highlighter-rouge">link: http://url-you-want-linked</code> to the post’s YAML front matter and you’re done.</p>
+
+<blockquote>
+  <p>And this is how a quote looks.</p>
+</blockquote>
+
+<p>Some <a href="#">link</a> can also be shown.</p>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="link" /><category term="Post Formats" /><summary type="html"><![CDATA[This theme supports link posts, made famous by John Gruber. To use, just add link: http://url-you-want-linked to the post’s YAML front matter and you’re done.]]></summary></entry><entry><title type="html">Post: Quote</title><link href="http://localhost:4000/blog/post-quote/" rel="alternate" type="text/html" title="Post: Quote" /><published>2010-02-05T00:00:00+09:00</published><updated>2010-02-05T00:00:00+09:00</updated><id>http://localhost:4000/blog/post-quote</id><content type="html" xml:base="http://localhost:4000/blog/post-quote/"><![CDATA[<blockquote>
+  <p>Only one thing is impossible for God: To find any sense in any copyright law on the planet.</p>
+</blockquote>
+
+<blockquote>
+  <p><cite><a href="http://www.brainyquote.com/quotes/quotes/m/marktwain163473.html">Mark Twain</a></cite></p>
+</blockquote>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="Post Formats" /><category term="quote" /><summary type="html"><![CDATA[Only one thing is impossible for God: To find any sense in any copyright law on the planet. Mark Twain]]></summary></entry><entry><title type="html">Post: Notice</title><link href="http://localhost:4000/blog/post-notice/" rel="alternate" type="text/html" title="Post: Notice" /><published>2010-02-05T00:00:00+09:00</published><updated>2010-02-05T00:00:00+09:00</updated><id>http://localhost:4000/blog/post-notice</id><content type="html" xml:base="http://localhost:4000/blog/post-notice/"><![CDATA[<p>A notice displays information that explains nearby content. Often used to call attention to a particular detail.</p>
+
+<p>When using Kramdown <code class="language-plaintext highlighter-rouge">{: .notice}</code> can be added after a sentence to assign the <code class="language-plaintext highlighter-rouge">.notice</code> to the <code class="language-plaintext highlighter-rouge">&lt;p&gt;&lt;/p&gt;</code> element.</p>
+
+<p class="notice"><strong>Changes in Service:</strong> We just updated our <a href="#">privacy policy</a> here to better service our customers. We recommend reviewing the changes.</p>
+
+<p class="notice--primary"><strong>Primary Notice:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. <a href="#">Praesent libero</a>. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+
+<p class="notice--info"><strong>Info Notice:</strong> Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+
+<p class="notice--warning"><strong>Warning Notice:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">Integer nec odio</a>. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+
+<p class="notice--danger"><strong>Danger Notice:</strong> Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+
+<p class="notice--success"><strong>Success Notice:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at <a href="#">nibh elementum</a> imperdiet.</p>
+
+<p>Want to wrap several paragraphs or other elements in a notice? Using Liquid to capture the content and then filter it with <code class="language-plaintext highlighter-rouge">markdownify</code> is a good way to go.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% capture notice-2 %}
+#### New Site Features
+
+* You can now have cover images on blog pages
+* Drafts will now auto-save while writing
+{% endcapture %}
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"notice"</span><span class="nt">&gt;</span>{{ notice-2 | markdownify }}<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="notice">
+  
+<h4 id="new-site-features">New Site Features</h4>
+
+<ul>
+  <li>You can now have cover images on blog pages</li>
+  <li>Drafts will now auto-save while writing</li>
+</ul>
+
+</div>
+
+<p>Or you could skip the capture and stick with straight HTML.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"notice"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h4&gt;</span>Message<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;p&gt;</span>A basic message.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="notice">
+  <h4>Message</h4>
+  <p>A basic message.</p>
+</div>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="Post Formats" /><category term="notice" /><summary type="html"><![CDATA[A notice displays information that explains nearby content. Often used to call attention to a particular detail.]]></summary></entry><entry><title type="html">Post: Chat</title><link href="http://localhost:4000/blog/post-chat/" rel="alternate" type="text/html" title="Post: Chat" /><published>2010-01-08T00:00:00+09:00</published><updated>2010-01-08T00:00:00+09:00</updated><id>http://localhost:4000/blog/post-chat</id><content type="html" xml:base="http://localhost:4000/blog/post-chat/"><![CDATA[<p>Abbott: Strange as it may seem, they give ball players nowadays very peculiar names.</p>
+
+<p>Costello: Funny names?</p>
+
+<p>Abbott: Nicknames, nicknames. Now, on the St. Louis team we have Who’s on first, What’s on second, I Don’t Know is on third–</p>
+
+<p>Costello: That’s what I want to find out. I want you to tell me the names of the fellows on the St. Louis team.</p>
+
+<p>Abbott: I’m telling you. Who’s on first, What’s on second, I Don’t Know is on third–</p>
+
+<p>Costello: You know the fellows’ names?</p>
+
+<p>Abbott: Yes.</p>
+
+<p>Costello: Well, then who’s playing first?</p>
+
+<p>Abbott: Yes.</p>
+
+<p>Costello: I mean the fellow’s name on first base.</p>
+
+<p>Abbott: Who.</p>
+
+<p>Costello: The fellow playin’ first base.</p>
+
+<p>Abbott: Who.</p>
+
+<p>Costello: The guy on first base.</p>
+
+<p>Abbott: Who is on first.</p>
+
+<p>Costello: Well, what are you askin’ me for?</p>
+
+<p>Abbott: I’m not asking you–I’m telling you. Who is on first.</p>
+
+<p>Costello: I’m asking you–who’s on first?</p>
+
+<p>Abbott: That’s the man’s name.</p>
+
+<p>Costello: That’s who’s name?</p>
+
+<p>Abbott: Yes.</p>
+
+<p>Costello: When you pay off the first baseman every month, who gets the money?</p>
+
+<p>Abbott: Every dollar of it. And why not, the man’s entitled to it.</p>
+
+<p>Costello: Who is?</p>
+
+<p>Abbott: Yes.</p>
+
+<p>Costello: So who gets it?</p>
+
+<p>Abbott: Why shouldn’t he? Sometimes his wife comes down and collects it.</p>
+
+<p>Costello: Who’s wife?</p>
+
+<p>Abbott: Yes. After all, the man earns it.</p>
+
+<p>Costello: Who does?</p>
+
+<p>Abbott: Absolutely.</p>
+
+<p>Costello: Well, all I’m trying to find out is what’s the guy’s name on first base?</p>
+
+<p>Abbott: Oh, no, no. What is on second base.</p>
+
+<p>Costello: I’m not asking you who’s on second.</p>
+
+<p>Abbott: Who’s on first!</p>
+
+<p>Costello: St. Louis has a good outfield?</p>
+
+<p>Abbott: Oh, absolutely.</p>
+
+<p>Costello: The left fielder’s name?</p>
+
+<p>Abbott: Why.</p>
+
+<p>Costello: I don’t know, I just thought I’d ask.</p>
+
+<p>Abbott: Well, I just thought I’d tell you.</p>
+
+<p>Costello: Then tell me who’s playing left field?</p>
+
+<p>Abbott: Who’s playing first.</p>
+
+<p>Costello: Stay out of the infield! The left fielder’s name?</p>
+
+<p>Abbott: Why.</p>
+
+<p>Costello: Because.</p>
+
+<p>Abbott: Oh, he’s center field.</p>
+
+<p>Costello: Wait a minute. You got a pitcher on this team?</p>
+
+<p>Abbott: Wouldn’t this be a fine team without a pitcher?</p>
+
+<p>Costello: Tell me the pitcher’s name.</p>
+
+<p>Abbott: Tomorrow.</p>
+
+<p>Costello: Now, when the guy at bat bunts the ball–me being a good catcher–I want to throw the guy out at first base, so I pick up the ball and throw it to who?</p>
+
+<p>Abbott: Now, that’s he first thing you’ve said right.</p>
+
+<p>Costello: I DON’T EVEN KNOW WHAT I’M TALKING ABOUT!</p>
+
+<p>Abbott: Don’t get excited. Take it easy.</p>
+
+<p>Costello: I throw the ball to first base, whoever it is grabs the ball, so the guy runs to second. Who picks up the ball and throws it to what. What throws it to I don’t know. I don’t know throws it back to tomorrow–a triple play.</p>
+
+<p>Abbott: Yeah, it could be.</p>
+
+<p>Costello: Another guy gets up and it’s a long ball to center.</p>
+
+<p>Abbott: Because.</p>
+
+<p>Costello: Why? I don’t know. And I don’t care.</p>
+
+<p>Abbott: What was that?</p>
+
+<p>Costello: I said, I DON’T CARE!</p>
+
+<p>Abbott: Oh, that’s our shortstop!</p>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="chat" /><category term="Post Formats" /><summary type="html"><![CDATA[Abbott: Strange as it may seem, they give ball players nowadays very peculiar names.]]></summary></entry><entry><title type="html">Post: Modified Date</title><link href="http://localhost:4000/blog/post-modified/" rel="alternate" type="text/html" title="Post: Modified Date" /><published>2010-01-07T00:00:00+09:00</published><updated>2016-03-10T06:20:02+09:00</updated><id>http://localhost:4000/blog/post-modified</id><content type="html" xml:base="http://localhost:4000/blog/post-modified/"><![CDATA[<p>This post has been updated and should show a modified date if used in a layout.</p>
+
+<p>All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, “Oh, why can’t you remain like this for ever!” This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end.</p>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html"><![CDATA[This post has been updated and should show a modified date if used in a layout.]]></summary></entry><entry><title type="html">Post: Standard</title><link href="http://localhost:4000/blog/post-standard/" rel="alternate" type="text/html" title="Post: Standard" /><published>2010-01-07T00:00:00+09:00</published><updated>2010-01-07T00:00:00+09:00</updated><id>http://localhost:4000/blog/post-standard</id><content type="html" xml:base="http://localhost:4000/blog/post-standard/"><![CDATA[<p>All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, “Oh, why can’t you remain like this for ever!” This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end.</p>
+
+<p>Mrs. Darling first heard of Peter when she was tidying up her children’s minds. It is the nightly custom of every good mother after her children are asleep to rummage in their minds and put things straight for next morning, repacking into their proper places the many articles that have wandered during the day.</p>
+
+<!--more-->
+
+<p>This post has a manual excerpt <code class="language-plaintext highlighter-rouge">&lt;!--more--&gt;</code> set after the second paragraph. The following YAML Front Matter has also be applied:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">excerpt_separator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;!--more--&gt;"</span>
+</code></pre></div></div>
+
+<p>If you could keep awake (but of course you can’t) you would see your own mother doing this, and you would find it very interesting to watch her. It is quite like tidying up drawers. You would see her on her knees, I expect, lingering humorously over some of your contents, wondering where on earth you had picked this thing up, making discoveries sweet and not so sweet, pressing this to her cheek as if it were as nice as a kitten, and hurriedly stowing that out of sight. When you wake in the morning, the naughtiness and evil passions with which you went to bed have been folded up small and placed at the bottom of your mind and on the top, beautifully aired, are spread out your prettier thoughts, ready for you to put on.</p>
+
+<p>I don’t know whether you have ever seen a map of a person’s mind. Doctors sometimes draw maps of other parts of you, and your own map can become intensely interesting, but catch them trying to draw a map of a child’s mind, which is not only confused, but keeps going round all the time. There are zigzag lines on it, just like your temperature on a card, and these are probably roads in the island, for the Neverland is always more or less an island, with astonishing splashes of colour here and there, and coral reefs and rakish-looking craft in the offing, and savages and lonely lairs, and gnomes who are mostly tailors, and caves through which a river runs, and princes with six elder brothers, and a hut fast going to decay, and one very small old lady with a hooked nose. It would be an easy map if that were all, but there is also first day at school, religion, fathers, the round pond, needle-work, murders, hangings, verbs that take the dative, chocolate pudding day, getting into braces, say ninety-nine, three-pence for pulling out your tooth yourself, and so on, and either these are part of the island or they are another map showing through, and it is all rather confusing, especially as nothing will stand still.</p>
+
+<p>Of course the Neverlands vary a good deal. John’s, for instance, had a lagoon with flamingoes flying over it at which John was shooting, while Michael, who was very small, had a flamingo with lagoons flying over it. John lived in a boat turned upside down on the sands, Michael in a wigwam, Wendy in a house of leaves deftly sewn together. John had no friends, Michael had friends at night, Wendy had a pet wolf forsaken by its parents, but on the whole the Neverlands have a family resemblance, and if they stood still in a row you could say of them that they have each other’s nose, and so forth. On these magic shores children at play are for ever beaching their coracles [simple boat]. We too have been there; we can still hear the sound of the surf, though we shall land no more.</p>
+
+<p>Of all delectable islands the Neverland is the snuggest and most compact, not large and sprawly, you know, with tedious distances between one adventure and another, but nicely crammed. When you play at it by day with the chairs and table-cloth, it is not in the least alarming, but in the two minutes before you go to sleep it becomes very real. That is why there are night-lights.</p>
+
+<p>Occasionally in her travels through her children’s minds Mrs. Darling found things she could not understand, and of these quite the most perplexing was the word Peter. She knew of no Peter, and yet he was here and there in John and Michael’s minds, while Wendy’s began to be scrawled all over with him. The name stood out in bolder letters than any of the other words, and as Mrs. Darling gazed she felt that it had an oddly cocky appearance.</p>]]></content><author><name>Hyeongtaek Woo</name></author><category term="Blog" /><category term="Post Formats" /><category term="readability" /><category term="standard" /><summary type="html"><![CDATA[All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, “Oh, why can’t you remain like this for ever!” This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end. Mrs. Darling first heard of Peter when she was tidying up her children’s minds. It is the nightly custom of every good mother after her children are asleep to rummage in their minds and put things straight for next morning, repacking into their proper places the many articles that have wandered during the day.]]></summary></entry></feed>

@@ -1,0 +1,891 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>How to use git - A blog where I do what I want</title>
+<meta name="description" content="How to Use Git">
+
+
+  <meta name="author" content="Hyeongtaek Woo">
+  
+  <meta property="article:author" content="Hyeongtaek Woo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="A blog where I do what I want">
+<meta property="og:title" content="How to use git">
+<meta property="og:url" content="http://localhost:4000/git/How-to-use-git/">
+
+
+  <meta property="og:description" content="How to Use Git">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-10-06T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/git/How-to-use-git/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="A blog where I do what I want Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          A blog where I do what I want
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/"
+                
+                
+              >Categories</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/tags/"
+                
+                
+              >Tags</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="Hyeongtaek Woo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Hyeongtaek Woo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Software Engineer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://github.com/hyewoo1" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="How to use git">
+    <meta itemprop="description" content="How to Use Git">
+    <meta itemprop="datePublished" content="2024-10-06T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/git/How-to-use-git/" itemprop="url">How to use git
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="how-to-use-git">How to Use Git</h2>
+
+<h3 id="git-reference">Git Reference</h3>
+<ul>
+  <li><a href="https://git-scm.com/docs">Git - Official Documentation</a></li>
+</ul>
+
+<h3 id="what-is-a-git-repository">What is a Git Repository?</h3>
+<ul>
+  <li>A Git repository is a storage location for your project’s files and version history.</li>
+</ul>
+
+<h3 id="git-gui">Git GUI</h3>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[GitKraken Legendary Git Tools</td>
+          <td>GitKraken](https://www.gitkraken.com/)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h2 id="basic-git-commands">Basic Git Commands</h2>
+
+<h3 id="check-git-version">Check Git Version</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h3 id="check-the-status-of-the-git-repository">Check the Status of the Git Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
+
+<h3 id="initialize-a-new-repository">Initialize a New Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
+
+<h3 id="add-files-to-staging-area-working-directory--staging-area">Add Files to Staging Area (Working Directory → Staging Area)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1 file2
+</code></pre></div></div>
+
+<h3 id="add-all-changes-to-staging-area">Add All Changes to Staging Area</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+</code></pre></div></div>
+
+<h3 id="commit-changes-staging-area--repository">Commit Changes (Staging Area → Repository)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Commit message"</span>
+</code></pre></div></div>
+<ul>
+  <li>If you don’t use the <code class="language-plaintext highlighter-rouge">-m</code> option, Git will open a text editor (like Vim).</li>
+  <li>You can change the default text editor by following this link: <a href="https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Setup-and-Config">Git Setup and Config</a>.</li>
+</ul>
+
+<h2 id="viewing-git-log-and-commit-information">Viewing Git Log and Commit Information</h2>
+
+<h3 id="view-commit-logs">View Commit Logs</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
+</code></pre></div></div>
+<ul>
+  <li>To see the log in a single line per commit, use <code class="language-plaintext highlighter-rouge">--oneline</code> or <code class="language-plaintext highlighter-rouge">--pretty=oneline --abbrev-commit</code>.</li>
+  <li><a href="https://git-scm.com/docs/git-log">Git - git-log Documentation</a></li>
+</ul>
+
+<h3 id="amend-the-most-recent-commit">Amend the Most Recent Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add &lt;file&gt;
+git commit <span class="nt">--amend</span>
+</code></pre></div></div>
+
+<h3 id="exclude-files-and-folders-gitignore">Exclude Files and Folders (gitignore)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> .gitignore
+</code></pre></div></div>
+<ul>
+  <li>You can exclude specific files and folders by listing them in the <code class="language-plaintext highlighter-rouge">.gitignore</code> file.</li>
+  <li>Examples: API keys, credentials, system files, secret API keys
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">foldername/</code>: Exclude a specific folder</li>
+      <li><code class="language-plaintext highlighter-rouge">*.log</code>: Exclude all <code class="language-plaintext highlighter-rouge">.log</code> files</li>
+    </ul>
+  </li>
+  <li><a href="http://gitignore.io">gitignore.io</a> is a helpful resource for generating <code class="language-plaintext highlighter-rouge">.gitignore</code> files.</li>
+</ul>
+
+<h2 id="best-practices-for-git-commits">Best Practices for Git Commits</h2>
+
+<h3 id="atomic-commits">Atomic Commits</h3>
+<ul>
+  <li>Each commit should represent one unit of work or one feature.</li>
+</ul>
+
+<h3 id="writing-commit-messages">Writing Commit Messages</h3>
+<ul>
+  <li>Commit messages should be written in the present tense. The first line should summarize the commit.</li>
+</ul>
+
+<h2 id="branch-management">Branch Management</h2>
+
+<h3 id="create-and-switch-to-a-branch">Create and Switch to a Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch &lt;branch-name&gt;
+git switch &lt;branch-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>Use the <code class="language-plaintext highlighter-rouge">-c</code> option to create and switch to a branch at the same time.</li>
+</ul>
+
+<h3 id="rename-a-branch">Rename a Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-m</span> &lt;new-branch-name&gt;
+</code></pre></div></div>
+
+<h3 id="delete-a-branch">Delete a Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> &lt;branch-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>You can only delete branches that have been merged.</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">-D</code> option to force-delete a branch.</li>
+</ul>
+
+<h3 id="merge-branches">Merge Branches</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge &lt;branch-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>Fast-forward merges are possible when there are no changes on the master branch.</li>
+  <li>If conflicts occur, Git will show the conflicting files, allowing you to resolve the conflicts before committing.</li>
+</ul>
+
+<h2 id="comparing-changes-with-git">Comparing Changes with Git</h2>
+
+<h3 id="compare-changes-with-the-last-commit">Compare Changes with the Last Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff
+</code></pre></div></div>
+
+<h3 id="compare-staged-changes">Compare Staged Changes</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff <span class="nt">--staged</span>
+</code></pre></div></div>
+
+<h3 id="compare-specific-files">Compare Specific Files</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff HEAD &lt;filename&gt;
+</code></pre></div></div>
+
+<h3 id="compare-between-branches">Compare Between Branches</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff master..&lt;branch-name&gt;
+</code></pre></div></div>
+
+<h3 id="compare-between-commits">Compare Between Commits</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff &lt;commit1&gt;..&lt;commit2&gt;
+</code></pre></div></div>
+
+<h2 id="stashing-changes-with-git">Stashing Changes with Git</h2>
+
+<h3 id="stash-changes">Stash Changes</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash
+</code></pre></div></div>
+<ul>
+  <li>Temporarily save changes when switching branches.</li>
+</ul>
+
+<h3 id="apply-and-delete-the-latest-stash">Apply and Delete the Latest Stash</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash pop
+</code></pre></div></div>
+<ul>
+  <li>This applies the most recent stash and removes it from the stash stack.</li>
+</ul>
+
+<h3 id="apply-stash-without-deleting">Apply Stash Without Deleting</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash apply
+</code></pre></div></div>
+<ul>
+  <li>This applies the stash but keeps it in the stash stack.</li>
+</ul>
+
+<h2 id="reverting-and-resetting-commits">Reverting and Resetting Commits</h2>
+
+<h3 id="revert-a-commit">Revert a Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git revert &lt;commit-hash&gt;
+</code></pre></div></div>
+<ul>
+  <li>Reverts a previous commit by creating a new commit that undoes the changes. This is useful when working in a team.</li>
+</ul>
+
+<h3 id="reset-to-a-specific-commit">Reset to a Specific Commit</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset &lt;commit-hash&gt;
+</code></pre></div></div>
+<ul>
+  <li>Resets the repository to the state of a specific commit.</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">--hard</code> option to discard all changes as well.</li>
+</ul>
+
+<h2 id="managing-remote-repositories">Managing Remote Repositories</h2>
+
+<h3 id="add-a-remote-repository">Add a Remote Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add &lt;name&gt; &lt;url&gt;
+</code></pre></div></div>
+
+<h3 id="view-remote-repositories">View Remote Repositories</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h3 id="push-changes-to-a-remote-repository">Push Changes to a Remote Repository</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master
+</code></pre></div></div>
+
+<h3 id="push-a-local-branch-to-a-remote-branch">Push a Local Branch to a Remote Branch</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin &lt;branch-name&gt;
+</code></pre></div></div>
+
+<h2 id="rebasing-with-git">Rebasing with Git</h2>
+
+<h3 id="perform-a-rebase">Perform a Rebase</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase &lt;branch&gt;
+</code></pre></div></div>
+<ul>
+  <li>Rebases the current branch onto another branch, cleaning up the commit history.</li>
+</ul>
+
+<h3 id="interactive-rebase">Interactive Rebase</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~4
+</code></pre></div></div>
+<ul>
+  <li>Opens an interactive rebase editor to clean up multiple commits.</li>
+</ul>
+
+<h2 id="git-reflog">Git Reflog</h2>
+
+<h3 id="view-reflog-reference-log">View Reflog (Reference Log)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog
+</code></pre></div></div>
+<ul>
+  <li>Shows a log of all references that have been updated in your repository (including those not visible in git log).
+View Reflog for a Specific Branch</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog show HEAD
+git reflog show &lt;branch-name&gt;
+</code></pre></div></div>
+<h3 id="reset-to-a-specific-point-in-reflog">Reset to a Specific Point in Reflog</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--hard</span> HEAD@<span class="o">{</span>index<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Resets your repository to a specific point in the reference log, discarding changes.</li>
+</ul>
+
+<h3 id="compare-differences-using-reflog">Compare Differences Using Reflog</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff HEAD@<span class="o">{</span>0<span class="o">}</span> HEAD@<span class="o">{</span>2<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Compares changes between two points in the reflog.</li>
+</ul>
+
+<h2 id="managing-git-tags">Managing Git Tags</h2>
+
+<h3 id="create-and-list-tags">Create and List Tags</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag &lt;tag-name&gt;
+</code></pre></div></div>
+<ul>
+  <li>Lists all tags: <code class="language-plaintext highlighter-rouge">git tag -l</code></li>
+</ul>
+
+<h3 id="delete-a-tag">Delete a Tag</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag <span class="nt">-d</span> &lt;tag-name&gt;
+</code></pre></div></div>
+
+<h3 id="push-tags-to-remote">Push Tags to Remote</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--tags</span>
+</code></pre></div></div>
+
+<h3 id="checkout-by-tag">Checkout by Tag</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout &lt;tag&gt;
+</code></pre></div></div>
+
+<h2 id="git-aliases">Git Aliases</h2>
+
+<h3 id="set-up-a-git-alias">Set Up a Git Alias</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> alias.&lt;shortname&gt; <span class="s1">'&lt;git-command&gt;'</span>
+</code></pre></div></div>
+<ul>
+  <li>Example: <code class="language-plaintext highlighter-rouge">git config --global alias.a status</code> allows you to use <code class="language-plaintext highlighter-rouge">git a</code> to execute <code class="language-plaintext highlighter-rouge">git status</code>.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#git" class="page__taxonomy-item p-category" rel="tag">Git</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-10-06T00:00:00+09:00">October 6, 2024</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?text=How+to+use+git%20http%3A%2F%2Flocalhost%3A4000%2Fgit%2FHow-to-use-git%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fgit%2FHow-to-use-git%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/git/How-to-use-git/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/database/Using-Oracle-19c-Docker-Image-on-Windows/" class="pagination--pager" title="Using Oracle 19c Docker Image on Windows
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/Using-Oracle-19c-Docker-Image-on-Windows/" rel="permalink">Using Oracle 19c Docker Image on Windows
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Using Oracle 19c Docker Image on Windows
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/Docker-container-backup-and-restore/" rel="permalink">Docker container backup and restore
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Docker container backup and restore
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/welcome-to-jekyll/" rel="permalink">Welcome to Jekyll!
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="https://github.com">Post: Link
+</a> <a href="/blog/post-link/" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This theme supports link posts, made famous by John Gruber. To use, just add link: http://url-you-want-linked to the post’s YAML front matter and you’re done.
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hyewoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">A blog where I do what I want</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
