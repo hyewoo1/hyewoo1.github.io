@@ -23,24 +23,25 @@ tags:
 
 ### Command (Sub Command)
 
-| Function          | Bit/Word       | Command (Sub Command) | Processing Description                                           |   |
-|-------------------|----------------|-----------------------|------------------------------------------------------------------|-----------|
-| **Bulk Read**     | Bit Unit       | `0401(0001)`          | Read bit devices one point at a time                             |          |
-|                   | Word Unit      | `0401(0000)`          | Read bit devices in bulk (16 points at a time)                  |          |
-|                   |                |                       | Read word devices one point at a time                            |          |
-| **Bulk Write**    | Bit Unit       | `1401(0001)`          | Write to bit devices one point at a time                         |          |
-|                   | Word Unit      | `1401(0000)`          | Write to bit devices in bulk (16 points at a time)              |          |
-|                   |                |                       | Write to word devices one point at a time                        |          |
-| **Random Read**    | Word Unit      | `0403(0000)`          | Randomly read bit devices, specifying 16 or 32 points           |          |
-|                   |                |                       | Randomly read word devices, specifying 1 or 2 points             |          |
-| **Random Write**    | Bit Unit       | `1402(0001)`          | Write to bit devices one point at a time                         |          |
-|                   | Word Unit      | `1402(0000)`          | Write to bit devices in bulk (16 points at a time)              |          |
-|                   |                |                       | Write to word devices, specifying 1 or 2 points                  |          |
-| **Monitor Data Registration** | Data Registration | `0801(0000)`          | Register monitor bit devices in bulk (16 points at a time)      |          |
-|                   | Word Unit      |                       | Register monitor word devices, specifying 1 or 2 points          |          |
-| **Monitor**       | Word Unit      | `0802(0000)`          | Monitor the registered devices                                     |          |
-| **Multiple Blocks**| Bulk Read      | `0406(0000)`          | Randomly read multiple blocks, specifying n words of either word or bit devices |       |
-| **Multiple Blocks**| Bulk Write     | `1406(0000)`          | Randomly write multiple blocks, specifying n words of either word or bit devices |       |
+| Function    | Bit/Word    | Command (Sub Command) | Processing Description    |
+|-------------|-------------|-----------------------|---------------------------|
+| **Bulk Read**     | Bit Unit       | `0401(0001)`          | Read bit devices one point at a time                             |
+|                   | Word Unit      | `0401(0000)`          | Read bit devices in bulk (16 points at a time)                  |
+|                   |                |                       | Read word devices one point at a time                            |
+| **Bulk Write**    | Bit Unit       | `1401(0001)`          | Write to bit devices one point at a time                         |
+|                   | Word Unit      | `1401(0000)`          | Write to bit devices in bulk (16 points at a time)              |
+|                   |                |                       | Write to word devices one point at a time                        |
+| **Random Read**    | Word Unit      | `0403(0000)`          | Randomly read bit devices, specifying 16 or 32 points           |
+|                   |                |                       | Randomly read word devices, specifying 1 or 2 points             |
+| **Random Write**    | Bit Unit       | `1402(0001)`          | Write to bit devices one point at a time                         |
+|                   | Word Unit      | `1402(0000)`          | Write to bit devices in bulk (16 points at a time)              |
+|                   |                |                       | Write to word devices, specifying 1 or 2 points                  |
+| **Monitor Data Registration** | Data Registration | `0801(0000)`          | Register monitor bit devices in bulk (16 points at a time)      |
+|                   | Word Unit      |                       | Register monitor word devices, specifying 1 or 2 points          |
+| **Monitor**       | Word Unit      | `0802(0000)`          | Monitor the registered devices                                     |
+| **Multiple Blocks**| Bulk Read      | `0406(0000)`          | Randomly read multiple blocks, specifying n words of either word or bit devices |
+| **Multiple Blocks**| Bulk Write     | `1406(0000)`          | Randomly write multiple blocks, specifying n words of either word or bit devices |
+
 ---
 
 ### Devices
@@ -108,14 +109,16 @@ tags:
 ### ASCII Request / Response Messages
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points |
-|-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|
-| 5000      | 00             | FF         | 03FF                              | 00                                           | 0018                 | 0010                               | 0401    | 0001        | M*           | 001000         | 0005           |
+|-----------|----------|------------|-------------------|-------------|----------------------|--------------|---------|-------------|--------------|------|------|
+| 5000      | 00             | FF         | 03FF      | 00             | 0018      | 0010     | 0401    | 0001        | M*           | 001000         | 0005           |
+
 - Read 5 bits from M1000.
 - The requested data length refers to the length from `CPU Monitoring Timer` to `Data`.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code | Data  |
-|-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|-------|
-| D000      | 00             | FF         | 03FF                              | 00                                           | 0009                 | 0000           | 11001 |
+|-----------|----------------|------------|--------------------|--------------|----------------------|----------------|-------|
+| D000      | 00             | FF         | 03FF                              | 00           | 0009                 | 0000           | 11001 |
+
 - Response to reading 5 bits from M1000.
 - M1000: `1`, M1001: `1`, M1002: `0`, M1003: `0`, M1004: `1`.
 - The bit information is separated into `0` and `1` from left to right in the response.
@@ -124,27 +127,32 @@ tags:
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Error Code | Response Network Number | Response PLC Number | Requested Corresponding Module IO Number | Requested Corresponding Module Country Number | Command | Sub Command |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------|-----------------------|-------------------|------------------------------------------|----------------------------------------------|---------|-------------|
 | D000      | 00             | FF         | 03FF                              | 00                                           | 0016                 | C051       | 00                    | FF                | 03FF                                     | 00                                           | 0401    | 0001       |
+
 - An error response was received when the request was made.
 - Error Code: `C051`
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points | Data   |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|--------|
 | 5000      | 00             | FF         | 03FF                              | 00                                           | 001D                 | 0010                               | 1401    | 0001        | M*           | 001000         | 0005           | 10110  |
+
 - Write 5 bits starting from M1000: `10110`
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|
 | D000      | 00             | FF         | 03FF                              | 00                                           | 0004                 | 0000           |
+
 - Normal response to data writing.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|
 | 5000      | 00             | FF         | 03FF                              | 00                                           | 0018                 | 0010                               | 0401    | 0000        | M*           | 001000         | 0002           |
+
 - Read 2 words of bit device M1000 in word format.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code | Data         |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|--------------|
 | D000      | 00             | FF         | 03FF                              | 00                                           | 000C                 | 0000           | 000D 0000    |
+
 - Response to reading 2 words from the bit device M1000 in word format.
 - The leading `000D` corresponds to `M1015` ~ `M1000`, and the trailing `0000` corresponds to `M1031` ~ `M1016`.
 - 0x0D = 13 = 1 1 0 1.
@@ -153,17 +161,20 @@ tags:
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|
 | 5000      | 00             | FF         | 03FF                              | 00                                           | 0018                 | 0010                               | 0401    | 0000        | D*           | 001000         | 0003           |
+
 - Read 3 words starting from D1000.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code | Data         |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|--------------|
 | D000      | 00             | FF         | 03FF                              | 00                                           | 0010                 | 0000           | 04D2 162E 3039 |
+
 - Response to reading 3 words from D1000.
 - D1000: `1234 (0x04D2)`, D1001: `5678 (0x162E)`, D1002: `12345 (0x3039)`.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points | Data        |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|-------------|
 | 5000      | 00             | FF         | 03FF                              | 00                                           | 0020                 | 0010                               | 1401    | 0000        | M*           | 001000         | 0002           | FF00 00FF   |
+
 - Write 2 words starting from M1000.
 - M1015 ~ M1000: `FF00`, M1015 ~ M1012: `0x0F`, M1011 ~ M1008: `0x0F`.
 - M1031 ~ M1016: `00FF`.
@@ -171,20 +182,24 @@ tags:
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points | Data        |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|-------------|
 | 5000      | 00             | FF         | 03FF                              | 00                                           | 0020                 | 0010                               | 1401    | 0000        | D*           | 001000         | 0002           | 10E1 265D   |
+
 - Write 2 words starting from D1000.
 - D1000: `10E1`, D1001: `265D`.
+
 ---
 ### Binary Request / Response Messages
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Leading Device | Device Code | Device Points |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|----------------|--------------|----------------|
 | 0x5000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x1800               | 0x1000                             | 0x0104  | 0x0100      | 0xE80300       | 0x90        | 0x0500         |
+
 - Read 5 bits starting from M1000.
 - The binary format is fundamentally in little-endian.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code | Data       |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|------------|
 | 0xD000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0500               | 0x0000         | 0x110010   |
+
 - Response to reading 5 bits starting from M1000.
 - M1000: `1`, M1001: `1`, M1002: `0`, M1003: `0`, M1004: `1`.
 - The bit information is responded with `0`s and `1`s in order from left.
@@ -193,27 +208,32 @@ tags:
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Error Code | Response Network Number | Response PLC Number | Requested Corresponding Module IO Number | Requested Corresponding Module Country Number | Command | Sub Command |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------|-----------------------|-------------------|-------------------------------------------|----------------------------------------------|---------|-------------|
 | 0xD000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0B00               | 0x51C0     | 0x00                  | 0xFF                | 0xFF03                                   | 0x00                                         | 0x0114  | 0x0100     |
+
 - An error response was received when the request was made.
 - Error Code: `C051`.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points | Data       |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|------------|
 | 0x5000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0F00               | 0x1000                             | 0x0114  | 0x0100      | 0xE80300     | 0x90          | 0x0500       | 0x101100   |
+
 - Write 5 bits starting from M1000: `10110`.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|
 | 0xD000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0200               | 0x0000         |
+
 - Normal response to data writing.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Leading Device | Device Code | Device Points |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|----------------|--------------|----------------|
 | 0x5000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0C00               | 0x1000                             | 0x0104  | 0x0000      | 0xE80300       | 0x90        | 0x0200         |
+
 - Read 2 words of the bit device M1000 in word format.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code | Data               |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|--------------------|
 | 0xD000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0600               | 0x0000         | 0x19 0x08 0x22 0x62 |
+
 - Response to reading 2 words of the bit device M1000.
 - M1000 ~ M1003: `9`, M1004 ~ M1007: `1`, M1008 ~ M1011: `8`, M1012 ~ M1015: `0`.
 - Data is organized in the order of `1HL`, `2HL`, `3HL`, `4HL`.
@@ -221,23 +241,27 @@ tags:
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Leading Device | Device Code | Device Points |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|----------------|--------------|----------------|
 | 0x5000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0C00               | 0x1000                             | 0x0104  | 0x0000      | 0xE80300       | 0xA8        | 0x0300         |
+
 - Read 3 words starting from D1000.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | Response Code | Data               |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|----------------|--------------------|
 | 0xD000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x0800               | 0x0000         | 0xD204 0x2E16 0x3423 |
+
 - Response to reading 3 words starting from D1000.
 - D1000: `1234 (0x04D2)`, D1001: `5678 (0x162E)`, D1002: `9012 (0x2334)`.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points | Data               |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|--------------------|
 | 0x5000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x1000               | 0x1000                             | 0x0114  | 0x0000      | 0xE80300     | 0x90          | 0x0200         | 0xFF 0x0F 0xF0 0x0F |
+
 - Write 2 words starting from M1000.
 - Data is organized in the order of `1HL`, `2HL`, `3HL`, `4HL`.
 
 | Subheader | Network Number | PLC Number | Requested Corresponding Module IO | Requested Corresponding Module Country Number | Requested Data Length | CPU Monitoring Timer (Unit: 250ms) | Command | Sub Command | Device Code | Leading Device | Device Points | Data               |
 |-----------|----------------|------------|-----------------------------------|----------------------------------------------|----------------------|------------------------------------|---------|-------------|--------------|----------------|----------------|--------------------|
 | 0x5000    | 0x00          | 0xFF       | 0xFF03                            | 0x00                                         | 0x1000               | 0x1000                             | 0x0114  | 0x0000      | 0xE80300     | 0xA8          | 0x0200         | 0x4D05 0x8530       |
+
 - Write 2 words starting from D1000.
 - D1000: `1357 (0x054D)`, D1001: `12421 (0x3085)`.
 
